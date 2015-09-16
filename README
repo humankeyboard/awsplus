@@ -1,0 +1,41 @@
+# Create an IAM user
+
+Create an IAM user which full access to IAM using AWS Console
+
+# Boot an instance
+
+Create an instance using awsplus image
+
+# Use awsplus
+
+## 0- `awsplus` AMI has awplus tool pre installed. Create an instances from awsplus AMI and login as ubuntu user
+
+    ssh ubuntu@IP.ADD.RE.S -i your.pem
+
+## 1- configure awsplus
+
+    awsplus -configure
+
+    Profile Name [default]:
+    AWS Access Key ID [none]: AKIAJ72KFUAUD3GCBQEQ
+    AWS Secret Access Key [none]: fsHNsAuM+Q+S12pmiIfEJEmLAKa9quV22xrzB3Cs
+
+## 2- create `/home/ubuntu/users.txt` file, each line will have username, password and group
+
+    user1,password1,testgroup1
+    user2,password2,testgroup1
+    user3,password3,testgroup1
+    user4,password4,testgroup2
+    user5,password5,testgroup2
+
+## 3- create users using awsplus
+
+    awsplus -create-users -file=/home/ubuntu/users.txt -profile=default
+
+You will see a line per user as output
+
+## 4- If you want to delete the users you just created
+
+    awsplus -create-users-undo -file=/home/ubuntu/users.txt -profile=default
+
+This command will use users.txt file and remove the user from group and then delete the user
