@@ -1,10 +1,12 @@
 # Create an IAM user
 
-Create an IAM user which full access to IAM using AWS Console
+Create an IAM user with "IAMFullAccess" using AWS Console
 
 # Boot an instance
 
 Create an instance using awsplus image
+
+https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#LaunchInstanceWizard:ami=ami-57017732
 
 # Use awsplus
 
